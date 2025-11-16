@@ -48,6 +48,8 @@ const StatsCircleChart = ({
       </div>
 
       <PieChart
+        width={300}
+        height={300}
         style={{
           width: "100%",
           maxWidth: "80%",

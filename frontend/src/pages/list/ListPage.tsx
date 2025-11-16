@@ -70,7 +70,7 @@ function ListPage() {
     if (data?.ads) {
       setFilteredAds(data.ads);
     }
-  }, [data.ads, setFilteredAds]);
+  }, [data?.ads, setFilteredAds]);
   
   useHotkeys("/", (e) => {
     e.preventDefault();

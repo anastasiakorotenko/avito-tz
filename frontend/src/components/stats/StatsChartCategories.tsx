@@ -63,7 +63,7 @@ const StatsChartCategories: React.FC<StatsChartCategoriesProps> = ({
       </div>
 
       <div className="w-full h-64 min-w-0">
-        <ResponsiveContainer>
+        <ResponsiveContainer width="100%" height="100%">
           <RadarChart data={data}>
             <PolarGrid />
             <PolarAngleAxis dataKey="subject" tick={{ fontSize: 12 }} />
