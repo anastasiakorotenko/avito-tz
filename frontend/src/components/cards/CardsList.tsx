@@ -1,5 +1,6 @@
 import type { CardItemProps, CardListProps } from "@/types/interfaces";
 import Card from "./Card";
+import { AnimatePresence, motion } from "framer-motion";
 
 export const CardsList = ({ items, loading, error }: CardListProps) => {
   if (loading) return <div className="loader"></div>;
@@ -15,10 +16,20 @@ export const CardsList = ({ items, loading, error }: CardListProps) => {
   if (items.length === 0) return <p>Нет данных для отображения</p>;
 
   return (
-    <div className="flex w-full gap-5 flex-col">
-      {items.map((item: CardItemProps) => (
-        <Card key={item.id} {...item} />
-      ))}
-    </div>
+    <AnimatePresence>
+      <div className="flex w-full gap-5 flex-col">
+        {items.map((item: CardItemProps) => (
+          <motion.div
+            key={item.id}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Card key={item.id} {...item} />
+          </motion.div>
+        ))}
+      </div>
+    </AnimatePresence>
   );
 };
