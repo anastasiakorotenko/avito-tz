@@ -87,6 +87,7 @@ export const CardsFilters = ({
         <div className="flex flex-col gap-2">
           <label className="text-md font-medium">Поиск</label>
           <input
+            id="searchInput"
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}

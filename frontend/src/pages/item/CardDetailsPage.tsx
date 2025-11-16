@@ -16,9 +16,10 @@ import { ROUTES } from "@/constants/config";
 import { ICONS } from "@/constants/icons";
 import type { CardItemProps } from "@/types/interfaces";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAdsStore } from "@/store/useAdsStore";
 import { useTheme } from "@/theme/useTheme";
+import { useModerationHotkeys } from "@/hooks/useModerHotkeys";
 
 export const CardDetailsPage = () => {
   useEffect(() => {
@@ -35,6 +36,36 @@ export const CardDetailsPage = () => {
   const [reason, setReason] = useState<"reject" | "pending" | null>(null);
 
   const filteredAds = useAdsStore((state) => state.filteredAds);
+
+  const navigate = useNavigate();
+
+  const approve = () => {
+    if (items) postApprovedAds(items.id);
+  };
+
+  const reject = () => {
+    setReason("reject");
+    setIsModalOpen(true);
+  };
+
+  const goPrev = () => {
+    if (currentIndex > 0) {
+      navigate(ROUTES.CARD_DETAILS(String(filteredAds[currentIndex - 1].id)));
+    }
+  };
+
+  const goNext = () => {
+    if (currentIndex < filteredAds.length - 1) {
+      navigate(ROUTES.CARD_DETAILS(String(filteredAds[currentIndex + 1].id)));
+    }
+  };
+
+  useModerationHotkeys({
+    approve,
+    reject,
+    goNext,
+    goPrev,
+  });
 
   useEffect(() => {
     if (!id) return;
@@ -132,16 +163,13 @@ export const CardDetailsPage = () => {
             value="Одобрить"
             className="max-w-fit bg-green-200/90 dark:bg-green-200/60"
             imageUrl={ICONS.approved}
-            onClick={() => postApprovedAds(items.id)}
+            onClick={approve}
           />
           <Button
             value="Отклонить"
             className="max-w-fit bg-red-300/70"
             imageUrl={ICONS.reject}
-            onClick={() => {
-              setReason("reject");
-              setIsModalOpen(true);
-            }}
+            onClick={reject}
           />
           <Button
             value="Вернуть на доработку"

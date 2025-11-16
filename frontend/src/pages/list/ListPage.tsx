@@ -8,6 +8,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useAdsStore } from "@/store/useAdsStore";
 import { useTheme } from "@/theme/useTheme";
 import Pagination from "@/components/ui/Pagination";
+import useHotkeys from "@reecelucas/react-use-hotkeys";
 
 function ListPage() {
   useEffect(() => {
@@ -65,6 +66,11 @@ function ListPage() {
   const { data, loading, error } = useFetch(fetchData, params);
 
   setFilteredAds(data?.ads);
+
+  useHotkeys('/', (e) => {
+    e.preventDefault();
+    document.getElementById("searchInput")?.focus()
+  })
 
   return (
     <div className="w-full dark:bg-gray-950/90 bg-white">

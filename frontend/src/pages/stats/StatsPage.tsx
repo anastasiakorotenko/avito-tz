@@ -28,7 +28,7 @@ export const StatsPage = () => {
   if (loading) return <div className="loader"></div>;
 
   return (
-    <div className="w-full dark:bg-gray-950/90 bg-white">
+    <div className="w-full dark:bg-gray-950/90 bg-white mb-10">
       <div className="flex flex-col max-w-6xl min-w-0 mx-auto px-4 py-3 w-full gap-3">
         <div className="flex w-full justify-end">
           <Button
