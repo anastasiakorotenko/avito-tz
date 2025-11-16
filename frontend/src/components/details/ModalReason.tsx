@@ -1,5 +1,5 @@
 import { REASONS } from "@/constants/config";
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { createPortal } from "react-dom";
 import Button from "../ui/Button";
 
@@ -10,7 +10,7 @@ interface ModalReasonProps {
   action: "reject" | "pending" | null;
 }
 
-export const ModalReason: React.FC<ModalReasonProps> = ({
+const ModalReason: React.FC<ModalReasonProps> = ({
   isOpen,
   onClose,
   onSubmit,
@@ -95,3 +95,4 @@ export const ModalReason: React.FC<ModalReasonProps> = ({
     document.body
   );
 };
+export default memo(ModalReason);

@@ -67,10 +67,10 @@ function ListPage() {
 
   setFilteredAds(data?.ads);
 
-  useHotkeys('/', (e) => {
+  useHotkeys("/", (e) => {
     e.preventDefault();
-    document.getElementById("searchInput")?.focus()
-  })
+    document.getElementById("searchInput")?.focus();
+  });
 
   return (
     <div className="w-full dark:bg-gray-950/90 bg-white">

@@ -1,13 +1,13 @@
 import { ICONS } from "@/constants/icons";
 import type { CardItemProps } from "@/types/interfaces";
 import { getRegistrationDuration } from "@/utils/getRegistrationDuration";
-import React from "react";
+import React, { memo } from "react";
 
 interface SellerInfoProps {
   items: CardItemProps;
 }
 
-export const SellerInfo: React.FC<SellerInfoProps> = ({ items }) => {
+const SellerInfo: React.FC<SellerInfoProps> = ({ items }) => {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex gap-4">
@@ -32,3 +32,5 @@ export const SellerInfo: React.FC<SellerInfoProps> = ({ items }) => {
     </div>
   );
 };
+
+export default memo(SellerInfo);

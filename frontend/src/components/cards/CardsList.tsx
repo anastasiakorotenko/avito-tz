@@ -1,6 +1,5 @@
 import type { CardItemProps, CardListProps } from "@/types/interfaces";
-import { Card } from "./index";
-
+import Card from "./Card";
 
 export const CardsList = ({ items, loading, error }: CardListProps) => {
   if (loading) return <div className="loader"></div>;

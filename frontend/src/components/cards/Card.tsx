@@ -1,5 +1,5 @@
 import type { CardItemProps } from "@/types/interfaces";
-import React from "react";
+import React, { memo } from "react";
 import { ROUTES, STATUS_LABELS } from "@/constants/config";
 import Button from "../ui/Button";
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import { formatDate } from "@/utils/formatDate";
 import { formatPrice } from "@/utils/formatPrice";
 import { ICONS } from "@/constants/icons";
 
-export const Card: React.FC<CardItemProps> = ({
+const Card: React.FC<CardItemProps> = ({
   id,
   title,
   images,
@@ -91,3 +91,5 @@ export const Card: React.FC<CardItemProps> = ({
     </div>
   );
 };
+
+export default memo(Card);

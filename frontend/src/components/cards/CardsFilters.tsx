@@ -2,8 +2,9 @@ import { CATEGORIES, STATUS_LABELS, STATUSES } from "@/constants/config";
 import type { CardFiltersProps } from "@/types/interfaces";
 import Button from "../ui/Button";
 import { ICONS } from "@/constants/icons";
+import { memo } from "react";
 
-export const CardsFilters = ({
+const CardsFilters = ({
   status,
   categoryId,
   setCategory,
@@ -105,3 +106,4 @@ export const CardsFilters = ({
     </div>
   );
 };
+export default memo(CardsFilters);

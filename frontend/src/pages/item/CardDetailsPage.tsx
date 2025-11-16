@@ -5,12 +5,12 @@ import {
   postRejectedAds,
 } from "@/api/api";
 import {
+  SliderImages,
+  ModerationHistory,
   CharacteristicsTable,
   ModalReason,
-  ModerationHistory,
   SellerInfo,
-  SliderImages,
-} from "@/components/details/index";
+} from "@/components/details";
 import Button from "@/components/ui/Button";
 import { ROUTES } from "@/constants/config";
 import { ICONS } from "@/constants/icons";

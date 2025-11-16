@@ -3,14 +3,13 @@ import { formatDate } from "@/utils/formatDate";
 import { ICONS } from "@/constants/icons";
 import type React from "react";
 import type { CardItemProps } from "@/types/interfaces";
+import { memo } from "react";
 
 interface ModerationHistoryProps {
   items: CardItemProps;
 }
 
-export const ModerationHistory: React.FC<ModerationHistoryProps> = ({
-  items,
-}) => {
+const ModerationHistory: React.FC<ModerationHistoryProps> = ({ items }) => {
   return (
     <div className="sm:w-1/2 h-auto flex flex-col gap-2 md:p-5 p-4 rounded-2xl bg-amber-100/30 dark:bg-amber-100/40 border dark:border-gray-950 border-amber-950">
       <div className="flex items-center gap-2">
@@ -59,3 +58,4 @@ export const ModerationHistory: React.FC<ModerationHistoryProps> = ({
     </div>
   );
 };
+export default memo(ModerationHistory);

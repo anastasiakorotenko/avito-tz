@@ -1,4 +1,4 @@
-export { Card } from "./Card";
+export {default as Card } from "./Card";
 export { CardsList } from "./CardsList";
-export { CardsSort } from "./CardsSort";
-export { CardsFilters } from "./CardsFilters";
+export {default as CardsSort } from "./CardsSort";
+export {default as CardsFilters } from "./CardsFilters";

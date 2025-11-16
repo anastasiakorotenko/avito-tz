@@ -1,12 +1,13 @@
-import StatsSort from "@/components/stats/StatsSort";
 import Button from "@/components/ui/Button";
 import { useTheme } from "@/theme/useTheme";
 import { useEffect } from "react";
 import { useStatsStore } from "@/store/useStatsStore";
-import StatsMetrics from "@/components/stats/StatsMetrics";
-import StatsChartActivity from "@/components/stats/StatsChartActivity";
-import StatsCircleChart from "@/components/stats/StatsCircleChart";
-import StatsChartCategories from "@/components/stats/StatsChartCategories";
+import {
+  StatsMetrics,
+  StatsChartActivity,
+  StatsCircleChart,
+  StatsChartCategories,StatsSort
+} from "@/components/stats/index";
 
 export const StatsPage = () => {
   useEffect(() => {
