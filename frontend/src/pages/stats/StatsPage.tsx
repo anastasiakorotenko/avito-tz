@@ -53,7 +53,7 @@ export const StatsPage = () => {
       transition={{ duration: 0.25 }}
       className="w-full h-full dark:bg-gray-950/90 bg-white gap-3"
     >
-      <div className="flex py-3 px-4 mt-10 w-full max-w-6xl justify-end gap-3">
+      <div className="flex pb-3 py-12 px-4 w-full max-w-6xl justify-end gap-3">
         <Button
           onClick={toggleTheme}
           className="bg-white dark:bg-black dark:text-white text-black text-sm px-3 py-1 rounded border border-gray-500 hover:bg-gray-300 hover:text-white hover:dark:text-black dark:hover:bg-gray-300 transition w-20"
@@ -71,7 +71,7 @@ export const StatsPage = () => {
         />
       </div>
 
-      <div className="w-full h-full min-h-fit dark:bg-gray-950/90 bg-white mb-10 overflow-visible">
+      <div className="w-full h-full min-h-fit pb-10 overflow-visible">
         <div className="flex flex-col max-w-6xl min-w-0  mx-auto px-4 py-3 w-full gap-3">
           <StatsSort period={period} setPeriod={setPeriod} />
 
